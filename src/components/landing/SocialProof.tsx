@@ -66,25 +66,25 @@ export function SocialProof() {
     }, [autoplay]);
 
     return (
-        <section className="py-32 bg-secondary/30 overflow-hidden">
+        <section className="py-20 md:py-32 bg-secondary/30 overflow-hidden">
             <Container>
 
                 {/* Header */}
-                <div className="text-center mb-20 space-y-4">
-                    <h3 className="text-sm font-bold tracking-[0.2em] text-accent uppercase font-sans">
+                <div className="text-center mb-12 md:mb-20 space-y-4 px-4">
+                    <h3 className="text-xs md:text-sm font-bold tracking-[0.2em] text-accent uppercase font-sans">
                         Testimonials
                     </h3>
                     <h2 className="text-3xl md:text-5xl font-serif font-medium text-foreground max-w-2xl mx-auto leading-tight">
                         Trusted by Gift Givers, <br /> Loved by Recipients
                     </h2>
-                    <p className="text-muted-foreground max-w-md mx-auto font-sans">
+                    <p className="text-sm md:text-base text-muted-foreground max-w-md mx-auto font-sans">
                         See why thousands of people trust StoryBox to deliver their most meaningful moments.
                     </p>
                 </div>
 
                 {/* Stacked Card Section */}
                 <div
-                    className="relative w-full max-w-md mx-auto h-[450px] flex items-center justify-center"
+                    className="relative w-full max-w-md mx-auto h-[400px] md:h-[450px] flex items-center justify-center px-4"
                     onMouseEnter={() => setAutoplay(false)}
                     onMouseLeave={() => setAutoplay(true)}
                 >
@@ -108,7 +108,7 @@ export function SocialProof() {
                                         zIndex: 3 - index
                                     }}
                                     exit={{
-                                        x: 200, // Swipe right
+                                        x: 300, // Swipe right
                                         opacity: 0,
                                         scale: 1,
                                         rotate: 15,
@@ -119,14 +119,14 @@ export function SocialProof() {
                                         stiffness: 180,
                                         damping: 24
                                     }}
-                                    className="absolute top-0 w-full"
+                                    className="absolute top-0 w-full px-4 md:px-0"
                                     style={{
                                         transformOrigin: "top center"
                                     }}
                                     onClick={() => handleNext()}
                                 >
                                     {/* Physical Badge Render */}
-                                    <div className="relative bg-background rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] border border-border p-8 pt-12 overflow-hidden h-[340px]">
+                                    <div className="relative bg-background rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] border border-border p-6 md:p-8 md:pt-12 overflow-hidden h-[320px] md:h-[340px]">
 
                                         {/* Card Content */}
                                         <div className="flex flex-col h-full justify-between relative z-10">
@@ -138,19 +138,19 @@ export function SocialProof() {
                                                         <div className="w-8 h-8 bg-foreground rounded-lg flex items-center justify-center text-background font-serif font-bold text-xs">
                                                             SB
                                                         </div>
-                                                        <span className="font-bold text-sm tracking-wider text-muted-foreground/80 uppercase font-sans">{t.company}</span>
+                                                        <span className="font-bold text-xs md:text-sm tracking-wider text-muted-foreground/80 uppercase font-sans">{t.company}</span>
                                                     </div>
-                                                    <Quote className="text-accent w-6 h-6" />
+                                                    <Quote className="text-accent w-5 h-5 md:w-6 md:h-6" />
                                                 </div>
 
-                                                <p className="text-xl font-serif text-foreground leading-relaxed line-clamp-4">
+                                                <p className="text-lg md:text-xl font-serif text-foreground leading-relaxed line-clamp-4">
                                                     "{t.quote}"
                                                 </p>
                                             </div>
 
                                             {/* Bottom: Profile */}
                                             <div className="flex items-center gap-4 pt-6 border-t border-border">
-                                                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-background shadow-sm">
+                                                <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-background shadow-sm">
                                                     <Image
                                                         src={t.image}
                                                         alt={t.name}
@@ -160,8 +160,8 @@ export function SocialProof() {
                                                     />
                                                 </div>
                                                 <div className="flex-1">
-                                                    <h4 className="font-bold text-foreground font-serif leading-tight">{t.name}</h4>
-                                                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide font-sans">{t.title}</p>
+                                                    <h4 className="font-bold text-foreground font-serif leading-tight text-sm md:text-base">{t.name}</h4>
+                                                    <p className="text-[10px] md:text-xs text-muted-foreground font-medium uppercase tracking-wide font-sans">{t.title}</p>
                                                 </div>
                                             </div>
 
