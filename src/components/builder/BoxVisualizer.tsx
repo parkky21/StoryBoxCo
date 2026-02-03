@@ -3,6 +3,7 @@
 import { useBoxStore } from "@/store/box-store";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import Image from "next/image";
 
 export function BoxVisualizer() {
     const { selectedItems, removeItem, boxType, totalPrice } = useBoxStore();
@@ -25,17 +26,24 @@ export function BoxVisualizer() {
                             exit={{ scale: 0, opacity: 0 }}
                             drag
                             dragConstraints={{ left: -100, right: 100, top: -100, bottom: 100 }}
-                            className="relative w-24 h-24 bg-white shadow-sm p-2 rounded-sm flex flex-col items-center justify-center cursor-grab active:cursor-grabbing group"
+                            className="relative w-24 h-24 shadow-none p-0 bg-transparent flex flex-col items-center justify-center cursor-grab active:cursor-grabbing group"
                         >
+                            <div className="relative w-full h-full">
+                                <Image
+                                    src={item.image}
+                                    alt={item.name}
+                                    fill
+                                    className="object-contain drop-shadow-md mix-blend-multiply"
+                                />
+                            </div>
                             <div className="absolute -top-2 -right-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
                                 <button
                                     onClick={(e) => { e.stopPropagation(); removeItem(item.id); }}
-                                    className="bg-red-500 text-white rounded-full p-1 hover:bg-red-600"
+                                    className="bg-red-500 text-white rounded-full p-1 hover:bg-red-600 shadow-sm"
                                 >
                                     <X className="w-3 h-3" />
                                 </button>
                             </div>
-                            <span className="text-[10px] text-center font-serif leading-tight">{item.name}</span>
                         </motion.div>
                     ))}
                 </AnimatePresence>
@@ -50,7 +58,7 @@ export function BoxVisualizer() {
             {/* Floating Price Tag */}
             <div className="absolute bottom-8 right-8 bg-white/80 backdrop-blur-md p-4 rounded-lg shadow-sm border border-border">
                 <p className="text-xs uppercase tracking-widest text-muted-foreground">Total Value</p>
-                <p className="text-2xl font-serif">${totalPrice}</p>
+                <p className="text-2xl font-serif">₹{totalPrice}</p>
             </div>
         </div>
     );

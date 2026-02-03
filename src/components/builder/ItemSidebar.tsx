@@ -4,15 +4,16 @@ import { Button } from "@/components/ui/button";
 import { Item, useBoxStore } from "@/store/box-store";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
+import Image from "next/image";
 
 // Mock Data
 const ITEMS: Item[] = [
-    { id: '1', name: 'Handwritten Letter', price: 15, category: 'story', description: 'Your words, on thick cotton paper.', image: '/images/letter.png' }, // Placeholder image
-    { id: '2', name: 'Vintage Polaroid', price: 8, category: 'story', description: 'A moment frozen in time.', image: '/images/polaroid.png' },
-    { id: '3', name: 'Dried Lavender', price: 12, category: 'keepsake', description: 'Calming scent from Provence.', image: '/images/lavender.png' },
-    { id: '4', name: 'Gold Locket', price: 45, category: 'keepsake', description: 'To keep them close.', image: '/images/locket.png' },
-    { id: '5', name: 'Artisan Chocolate', price: 10, category: 'treat', description: 'Dark chocolate with sea salt.', image: '/images/chocolate.png' },
-    { id: '6', name: 'Scented Candle', price: 25, category: 'treat', description: 'Warm vanilla and sandalwood.', image: '/images/candle.png' },
+    { id: '1', name: 'Handwritten Letter', price: 200, category: 'story', description: 'Your words, on thick cotton paper.', image: '/images/letter.png' },
+    { id: '2', name: 'Vintage Polaroid', price: 500, category: 'story', description: 'A moment frozen in time.', image: '/images/polaroid.png' },
+    { id: '3', name: 'Dried Lavender', price: 250, category: 'keepsake', description: 'Calming scent from Provence.', image: '/images/lavender.png' },
+    { id: '4', name: 'Gold Locket', price: 2500, category: 'keepsake', description: 'To keep them close.', image: '/images/locket.png' },
+    { id: '5', name: 'Artisan Chocolate', price: 800, category: 'treat', description: 'Dark chocolate with sea salt.', image: '/images/chocolate.png' },
+    { id: '6', name: 'Scented Candle', price: 300, category: 'treat', description: 'Warm vanilla and sandalwood.', image: '/images/candle.png' },
 ];
 
 export function ItemSidebar() {
@@ -38,11 +39,18 @@ export function ItemSidebar() {
                                     className="group relative flex items-center gap-4 p-3 rounded-lg border border-border/50 bg-secondary/20 hover:bg-secondary/50 transition-colors cursor-pointer"
                                     onClick={() => addItem(item)}
                                 >
-                                    <div className="w-12 h-12 bg-white rounded-sm flex-shrink-0" /> {/* Placeholder for image */}
+                                    <div className="relative w-12 h-12 bg-secondary/30 rounded-sm flex-shrink-0 overflow-hidden">
+                                        <Image
+                                            src={item.image}
+                                            alt={item.name}
+                                            fill
+                                            className="object-cover mix-blend-multiply"
+                                        />
+                                    </div>
                                     <div className="flex-1">
                                         <div className="flex justify-between items-center">
                                             <h4 className="font-medium text-sm">{item.name}</h4>
-                                            <span className="text-xs font-mono">${item.price}</span>
+                                            <span className="text-xs font-mono">₹{item.price}</span>
                                         </div>
                                         <p className="text-xs text-muted-foreground line-clamp-1">{item.description}</p>
                                     </div>

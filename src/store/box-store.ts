@@ -22,15 +22,15 @@ interface BoxState {
 }
 
 const BOX_PRICES = {
-    basic: 25,
-    premium: 45,
-    luxury: 75
+    basic: 1500,
+    premium: 3500,
+    luxury: 5500
 };
 
 export const useBoxStore = create<BoxState>((set) => ({
     boxType: 'premium',
     selectedItems: [],
-    totalPrice: 45, // Initial price for premium
+    totalPrice: 3500, // Initial price for premium
 
     setBoxType: (type) => set((state) => ({
         boxType: type,

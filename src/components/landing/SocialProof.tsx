@@ -6,18 +6,18 @@ import { motion } from "framer-motion";
 const testimonials = [
     {
         quote: "I’ve never seen my partner cry over a gift before. It wasn’t just a box; it was our entire story.",
-        author: "Sarah J.",
-        location: "London"
+        author: "Ananya D.",
+        location: "Mumbai"
     },
     {
         quote: "Finally, a gift that feels like I made it myself, but with the polish of a luxury brand.",
-        author: "Michael T.",
-        location: "New York"
+        author: "Rohan K.",
+        location: "Pune"
     },
     {
         quote: "The quality of the paper, the scent, the layout—everything screamed intentionality.",
-        author: "Elena R.",
-        location: "Toronto"
+        author: "Priya M.",
+        location: "Nashik"
     }
 ];
 
